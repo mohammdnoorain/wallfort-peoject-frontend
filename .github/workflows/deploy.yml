@@ -1,0 +1,43 @@
+name: Deploy Vite React App
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: self-hosted
+
+    strategy:
+      matrix:
+        node-version: [21.x]  # Use appropriate Node.js versions
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Build project
+      run: npm run build
+
+    - name: Deploy to EC2
+      env:
+        HOST: ${{ secrets.EC2_HOST }}
+        USER: ${{ secrets.EC2_USER }}
+        KEY: ${{ secrets.EC2_KEY }}
+      run: |
+        scp -i $KEY -r dist/* $USER@$HOST:/var/www/react-app/
+        ssh -i $KEY $USER@$HOST << 'EOF'
+          sudo chown -R www-data:www-data /var/www/react-app
+          sudo systemctl restart nginx
+        EOF
