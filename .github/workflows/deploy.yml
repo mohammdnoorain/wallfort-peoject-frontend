@@ -1,9 +1,9 @@
 name: Deploy Vite React App
 
+
+
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
     branches: [ "main" ]
 
 jobs:
@@ -13,7 +13,8 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [21.x]  # Use appropriate Node.js versions
+        node-version: [21.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
     - uses: actions/checkout@v4
@@ -24,20 +25,15 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
 
-    - name: Install dependencies
-      run: npm ci
+    - run: npm ci
 
-    - name: Build project
-      run: npm run build
+    - run: npm run build --if-present
 
-    - name: Deploy to EC2
-      env:
-        HOST: ${{ secrets.EC2_HOST }}
-        USER: ${{ secrets.EC2_USER }}
-        KEY: ${{ secrets.EC2_KEY }}
+    - name: Set up .env
       run: |
-        scp -i $KEY -r dist/* $USER@$HOST:/var/www/react-app/
-        ssh -i $KEY $USER@$HOST << 'EOF'
-          sudo chown -R www-data:www-data /var/www/react-app
-          sudo systemctl restart nginx
-        EOF
+        touch .env
+        echo "${{ secrets.FRONTEND }}" > .env
+    - run: sudo chmod +x /home/ubuntu/wallfort-frontend/frontend/wallfort-peoject-frontend/wallfort-peoject-frontend/build
+          
+  
+
