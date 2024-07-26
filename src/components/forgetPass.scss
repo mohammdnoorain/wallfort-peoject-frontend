@@ -1,0 +1,76 @@
+.forgetPass-div {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: none;
+  background-image: url("../imgs//login-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Nunito Sans", sans-serif;
+  .fpWrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    height: 50%;
+    border-radius: 1vw;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    p{
+        font-size: 2vw;
+    }
+    input{
+        width: 85%;
+        margin-top: 2vw;
+        outline: none;
+        border: 1px solid gray;
+        padding: 10px 10px;
+        border-radius: 5px;
+        font-size: 1.2vw;
+    }
+  .btn-wrapper{
+    margin-top: 2vw;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1vw;
+    button{
+        cursor: pointer;
+        border-radius: 0.3vw;
+        color: white;
+        background-color: #00817F;
+        padding: 0.8vw 1vw;
+        width: 40%;
+        font-size: 1.3vw;
+        border: none;
+    }
+  }
+  .para-text{
+    font-size: 1.4vw;
+  }
+  }
+//   .otp-wrapper{
+//     margin-top: 2vw;
+//     width: 100%;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     gap: 1vw;
+//     button{
+//         cursor: pointer;
+//         border-radius: 0.3vw;
+//         color: white;
+//         background-color: #00817F;
+//         padding: 0.8vw 1vw;
+//         width: 40%;
+//         font-size: 1.3vw;
+//         border: none;
+//     }
+//   }
+}

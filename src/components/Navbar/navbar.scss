@@ -1,0 +1,63 @@
+.nav-main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Nunito Sans", sans-serif;
+  .welcome-text{
+    font-size: 2.2vw;
+    color:#202224;
+    span{
+      text-transform: capitalize;
+    }
+
+  }
+  .user-details {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1vw;
+    .user-language {
+      font-size: 1.2vw;
+      cursor: pointer;
+    }
+    svg {
+      font-size: 2vw;
+      cursor: pointer;
+    }
+    .user-img {
+      width: 2.5vw;
+      height: 2.5vw;
+      display: flex;
+      // img {
+      //   width: 100%;
+      //   height: 100%;
+      //   border-radius: 100%;
+      //   object-fit: cover;
+      // }
+    }
+    .user-name {
+      // height: 100%;
+      // width: 30%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      cursor: pointer;
+      
+
+      gap: 0;
+      .span1 {
+        font-size: 1.25vw;
+        line-height: 1;
+        text-transform: capitalize;
+      }
+      .span2 {
+        line-height: 1;
+        font-size: 1vw;
+      }
+    }
+  }
+}

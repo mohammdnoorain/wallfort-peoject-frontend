@@ -1,0 +1,338 @@
+.message-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  // align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  .userQuery {
+    position: absolute;
+    width: 100vw;
+    left: -8vw;
+    height: 100vh;
+    z-index: 50;
+    top: -10vh;
+    background-color: rgba(10, 10, 10, 0.747);
+
+    display: none;
+
+    .userData {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 40vw;
+      // height: 20vw;
+      z-index: 3;
+      position: relative;
+      border-radius: 1vw;
+      padding-top: 0.2vw;
+      padding-bottom: 1vw;
+      background-color: rgb(255, 255, 255);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2%;
+      flex-wrap: wrap;
+      // co%lor: #00817f;
+      padding: 2% 2%;
+
+      .closeQuery {
+        position: absolute;
+        right: 2%;
+        top: 2%;
+        font-size: 2vw;
+        cursor: pointer;
+      }
+
+      .userEmail,
+      .userName,
+      .userPhone,
+      .userQueryy {
+        font-size: 1vw;
+        // margin: 2vw 1vw;
+        // background-color: #fff000;
+        // border: 1px solid #000;
+        // height: 5vw;
+        display: flex;
+        flex-direction: column;
+        // justify-content: center;
+        // align-items: center;
+        padding: 1vw;
+
+        .title {
+          width: 100%;
+          // border: 1px solid #000;
+        }
+
+        .title-fields {
+          width: 100%;
+          border: 1px solid rgba(0, 0, 0, 0.164);
+          // background-color: #fff000;
+          padding: 0.5vw 0 0.5vw 0.2vw;
+          border-radius: 0.4vw;
+        }
+      }
+      .userName {
+        text-transform: capitalize;
+        width: 45%;
+      }
+      .userPhone {
+        width: 45%;
+      }
+      .userEmail {
+        width: 100%;
+      }
+      .userQueryy {
+        width: 100%;
+
+        .title-fields {
+          height: 10vw;
+        }
+      }
+    }
+  }
+  .h2 {
+    font-size: 1.8vw;
+    color: #292c2e;
+    text-align: left;
+    font-family: "Nunito Sans", sans-serif;
+  }
+  .message-section {
+    width: 100%;
+    height: 6%;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+    justify-content: space-between;
+
+    .m-search {
+      width: 25%;
+      height: 100%;
+      border-radius: 9999px;
+      border: 1px solid #d5d5d5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      margin-top: 0.5vw;
+      background-color: #f5f6fa;
+      font-family: "Nunito Sans", sans-serif;
+      svg {
+        font-size: 1vw;
+      }
+      input {
+        height: 90%;
+        width: 90%;
+        padding: 0vw 1vw;
+        outline: none;
+        border: none;
+        font-size: 1.1vw;
+        font-family: "Nunito Sans", sans-serif;
+        background-color: transparent;
+      }
+    }
+  }
+
+  .message-data-wrapper {
+    position: relative;
+    width: 100%;
+    margin-top: 1vw;
+    // border: 1px solid red;
+    height: 85%;
+    // overflow-y: scroll;
+    .message-heading {
+      // position: sticky;
+      // top: 0;
+      border-radius: 999vw;
+      width: 100%;
+      padding: 1vw 0vw;
+      background-color: #f1f4f9;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: "Nunito Sans", sans-serif;
+      .sender-name,
+      .sender-email,
+      .sender-phone,
+      .sender-message,
+      .sender-status,
+      .sender-activity {
+        font-size: 1.2vw;
+        font-weight: 600;
+        // border: 1px solid red;
+      }
+      .sender-name {
+        width: 10%;
+        padding-left: 2vw;
+      }
+      .sender-email {
+        width: 18%;
+        text-align: center;
+      }
+      .sender-phone {
+        text-align: center;
+        width: 15%;
+      }
+      .sender-message {
+        text-align: center;
+        width: 22%;
+        text-transform: capitalize;
+      }
+      .sender-status {
+        text-align: center;
+        width: 10%;
+      }
+      .sender-activity {
+        text-align: center;
+        width: 22%;
+      }
+    }
+    .message-datas {
+      width: 100%;
+      height: 90%;
+      overflow: hidden;
+      // border:1px solid red;
+      display: flex;
+      flex-direction: column;
+
+      .message-datas-inner {
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+          width: 0.5vw;
+        }
+
+        &::-webkit-scrollbar-track {
+          background: #f1f1f1;
+          border-radius: 1vw;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background: #00817f;
+          border-radius: 10px;
+        }
+        .message-data {
+          width: 100%;
+          height: 14%;
+          border-bottom: 1px solid rgba(211, 211, 211, 0.384);
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          font-family: "Nunito Sans", sans-serif;
+          .data-name,
+          .data-email,
+          .data-phone,
+          .data-message,
+          .data-status,
+          .message-activity {
+            font-weight: 700;
+          }
+
+          .data-name {
+            text-transform: capitalize;
+            width: 10%;
+            display: flex;
+            align-items: center;
+            font-size: 1.2vw;
+            padding-left: 1vw;
+            // border: 1px solid red;
+            justify-content: space-between;
+          }
+          .data-email {
+            width: 18%;
+            // border: 1px solid rgb(119, 82, 82);
+            text-align: center;
+            font-size: 1.2vw;
+          }
+          .data-phone {
+            text-align: center;
+            width: 15%;
+            font-size: 1.2vw;
+          }
+          .data-message {
+            text-align: center;
+            width: 22%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5vw;
+            span {
+              width: 60%;
+              font-size: 1.2vw;
+              padding: 0.3vw;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              overflow: hidden;
+            }
+            svg {
+              // width: 20%;
+              font-size: 1vw;
+              cursor: pointer;
+            }
+          }
+          .data-status {
+            text-align: center;
+            width: 10%;
+            button {
+              width: 100%;
+              padding: 0.3vw 1vw;
+              border: none;
+              color: white;
+              text-transform: capitalize;
+              font-family: "Nunito Sans", sans-serif;
+
+              font-size: 1.1vw;
+              background-color: #00817f;
+              border-radius: 999vw;
+            }
+            .view-Disabled-Availability {
+              pointer-events: none;
+              color: white;
+              cursor: not-allowed;
+              background-color: gray;
+            }
+          }
+          .message-activity {
+            text-align: center;
+            width: 22%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5vw;
+            .a-view,
+            .a-delete,
+            .a-copy,
+            .a-download {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 0.2vw;
+              cursor: pointer;
+              svg {
+                font-size: 1.2vw;
+                line-height: 1;
+              }
+              span {
+                font-size: 1.1vw;
+              }
+              .view-Disabled {
+                pointer-events: none;
+                color: gray;
+                cursor: not-allowed;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .pagination-query {
+    position: absolute;
+    bottom: -2.75vw;
+    left: 47%;
+    transform: translateX(-50%);
+  }
+}

@@ -1,0 +1,28 @@
+.paginate-ul{
+    // position: relative;
+    bottom:0;
+    display:flex;
+    justify-content: center;
+    list-style: none;
+    z-index: 12;
+    button{
+        font-size: 1.4vw;
+        // padding:1vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 2vw;
+        height:2vw;
+        cursor:pointer;
+        background: transparent;
+        outline:none;
+        border:none;
+        border-radius: 50%;
+        // border:1px solid grey;
+
+        // &:focus{
+        //     background-color: blue;
+        // }
+    }
+    
+}
