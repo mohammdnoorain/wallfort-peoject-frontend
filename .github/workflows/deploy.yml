@@ -1,7 +1,4 @@
 name: Deploy Vite React App
-
-
-
 on:
   push:
     branches: [ "main" ]
