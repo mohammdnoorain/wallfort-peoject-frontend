@@ -29,7 +29,6 @@ jobs:
     - run: npm ci
     - run: |
         npm install
-        npm run build --if-present
         touch .env
         echo "${{ secrets.FRONTEND }}" > .env
         sudo mkdir -p /var/www/html
