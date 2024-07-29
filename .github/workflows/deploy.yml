@@ -1,45 +1,36 @@
-name: Deploy Vite React App
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Node.js CI
 
 on:
   push:
     branches: [ "main" ]
+ 
 
 jobs:
-  build-and-deploy:
+  build:
+
     runs-on: self-hosted
 
     strategy:
       matrix:
-        node-version: [18.x] # You can change this to the version you need
+        node-version: [21.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build the application
-        run: |
-            npm install
-            npm run build
-
-      - name: Set up .env
-        run: |
-          touch .env
-          echo "${{ secrets.FRONTEND }}" > .env
-
-      - name: Deploy to web server
-        run: |
-          # Copy build files to the web server directory
-          sudo cp -r dist/* /var/www/html/
-        # Ensure the deployment step is appropriate for your server configuration
-
-      - name: Restart web server (optional)
-        run: sudo systemctl restart nginx # Adjust this command as per your web server
+    - uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+  
+    - run: npm ci
+    - run: |
+        npm install
+        npm run build --if-present
+        sudo mkdir -p /var/www/html
+        sudo cp -r ./dist/* /var/www/html
+        
+    - run: sudo systemctl restart nginx
