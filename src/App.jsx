@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import "./app.scss";
 
 // import LoginPage from "./pages/LoginPage.jsx"
@@ -12,7 +13,15 @@ import VisitorDetails from "./pages/VistorDetails/VisitorDetails.jsx";
 import Login from "./pages/Login/Login.jsx";
 import Plotdetails from "./pages/PlotDetails/Plotdetails.jsx";
 
+import { logPageView } from '../src/utils/analytics.js';
+import usePageTracking from '../src/utils/usePageTracking.js';
+
 function App() {
+
+  useEffect(() => {
+    logPageView();
+  }, []);
+  usePageTracking();
   return (
     <>
       <Routes>
