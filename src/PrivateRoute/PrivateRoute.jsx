@@ -7,7 +7,7 @@ import useAppContext from "../contextApi/useAppConext.jsx";
 const PrivateRoutes = () => {
   const {Privateroutetoken } = useAppContext();
 
-  return Privateroutetoken === null ? <>loading</> : Privateroutetoken === true ? <Outlet /> : <Navigate to="/login" />;
+  return Privateroutetoken === null ? <>you are not allowed to access this page :(</> : Privateroutetoken === true ? <Outlet /> : <Navigate to="/login" />;
 };
 
 export default PrivateRoutes;
